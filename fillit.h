@@ -6,7 +6,7 @@
 /*   By: vlistrat <vlistrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/07 11:36:40 by vlistrat          #+#    #+#             */
-/*   Updated: 2015/12/07 18:25:47 by vlistrat         ###   ########.fr       */
+/*   Updated: 2015/12/07 20:04:24 by vlistrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ int		ft_count(char *buf);
 char	***ft_fill(char *buf, char ***ret);
 void	ft_aff(char ***ret, char *buf);
 char	***ft_convert(char *buf);
+int		ft_tetrivalid(char ***ret);
 
 #endif
