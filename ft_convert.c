@@ -1,22 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_convert.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlistrat <vlistrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/07 11:36:40 by vlistrat          #+#    #+#             */
-/*   Updated: 2015/12/07 12:03:05 by vlistrat         ###   ########.fr       */
+/*   Created: 2015/12/07 12:39:16 by vlistrat          #+#    #+#             */
+/*   Updated: 2015/12/07 13:07:39 by vlistrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef
-# define
-# define BUF_SIZE 546
+#include "fillit.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include <string.h>
-# include <fcntl.h>
+char	***ft_convert(char *buf)
+{
+	int		i;
+	int		j;
+	int		k;
+	int		l;
+	char	***ret;
 
-#endif
+	i = 0;
+	j = 0;
+	k = 0;
+	l = 0;
+	ret = (char***)malloc(sizeof(**ret) * ft_count(buf) + 1);
+	while (i < ft_count(buf) + 1)
+	{
+		ret[i] = (char**)malloc(sizeof(*ret) * 4 + 1);
+		while (j < 5)
+		{
+			ret[i][j] = (char*)malloc(sizeof(*ret) * 4 + 1);
+			j++;
+		}
+		j = 0;
+		i++;
+	}
+	return (ret);
+}
