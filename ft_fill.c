@@ -1,33 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_fill.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vlistrat <vlistrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/07 11:34:04 by vlistrat          #+#    #+#             */
-/*   Updated: 2015/12/07 18:10:23 by vlistrat         ###   ########.fr       */
+/*   Created: 2015/12/07 14:55:27 by vlistrat          #+#    #+#             */
+/*   Updated: 2015/12/07 16:01:45 by vlistrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		main(int ac, char **av)
+char	***ft_fill(char *buf, char ***ret)
 {
-	char	*buf;
-	char	***aff;
-	int		len;
+	int		i;
+	int		j;
+	int		k;
+	int		l;
 
-	buf = ft_read(av);
-	len = (int)ft_strlen(buf);
-	if (ft_valid_grid(buf, len) != 1)
+	i = 0;
+	j = 0;
+	k = 0;
+	l = 0;
+	while (buf[i])
 	{
-		ft_putstr_fd("ERROR", 2);
-		return (0);
+		while (j < ft_count(buf))
+		{
+			k = 0;
+			while (k < 4)
+			{
+				l = 0;
+				while (l < 4)
+				{
+					ret[j][k][l] = buf[i];
+					i++;
+					l++;
+				}
+				ret[j][k][l] = '\0';
+				while (buf[i] == '\n')
+					i++;
+				k++;
+			}
+			ret[j][k] = NULL;
+			j++;
+		}
+		ret[j] = NULL;
 	}
-	aff = ft_convert(buf);
-	ft_aff(aff, buf);
-	free(buf);
-	free(aff);
-	return (0);
+	return (ret);
 }

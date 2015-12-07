@@ -6,7 +6,7 @@
 /*   By: vlistrat <vlistrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/07 12:39:16 by vlistrat          #+#    #+#             */
-/*   Updated: 2015/12/07 13:07:39 by vlistrat         ###   ########.fr       */
+/*   Updated: 2015/12/07 16:10:02 by vlistrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ char	***ft_convert(char *buf)
 		j = 0;
 		i++;
 	}
+	ret = ft_fill(buf, ret);
 	return (ret);
 }
