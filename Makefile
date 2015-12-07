@@ -6,7 +6,7 @@
 #    By: vlistrat <vlistrat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/05 15:36:08 by vlistrat          #+#    #+#              #
-#    Updated: 2015/12/07 18:24:42 by vlistrat         ###   ########.fr        #
+#    Updated: 2015/12/07 20:06:32 by vlistrat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SRC = main.c \
 	  ft_fill.c \
 	  ft_read.c \
 	  ft_valid.c \
+	  ft_tetrivalid.c
 
 OBJ = $(SRC:.c=.o)
 
