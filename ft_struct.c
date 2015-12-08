@@ -19,7 +19,7 @@ int	**ft_coord(char ***ret)
 	coord = (int**)malloc(sizeof(*coord) * ft_ret_size(ret));
 	while (i < ft_ret_size(ret))
 	{
-		coord[i] = (int*)malloc(sizeof(coord) * 3);
+		coord[i] = (int*)malloc(sizeof(coord) * 9);
 		i++;
 	}
 	return (coord);
