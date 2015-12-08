@@ -18,7 +18,12 @@ SRC = main.c \
 	  ft_fill.c \
 	  ft_read.c \
 	  ft_valid.c \
-	  ft_tetrivalid.c
+	  ft_tetrivalid.c \
+	  ft_one_five.c \
+	  ft_six_ten.c \
+	  ft_eleven_fifteen.c \
+	  ft_sixteen_nineteen.c \
+	  ft_is_tetri.c
 
 OBJ = $(SRC:.c=.o)
 

@@ -31,13 +31,11 @@ int		main(int ac, char **av)
 		return (0);
 	}
 	aff = ft_convert(buf);
-	ft_putchar('a');
 	if (ft_tetrivalid(aff) < 0)
 	{
 		ft_putendl_fd("error", 1);
 		return (0);
 	}
-	ft_putchar('b');
 	ft_aff(aff, buf);
 	free(buf);
 	free(aff);
