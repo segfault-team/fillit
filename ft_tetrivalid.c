@@ -6,7 +6,7 @@
 /*   By: vlistrat <vlistrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/07 18:40:13 by vlistrat          #+#    #+#             */
-/*   Updated: 2015/12/07 21:45:00 by vlistrat         ###   ########.fr       */
+/*   Updated: 2015/12/09 12:32:36 by vlistrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ static int		ft_tetri_pos(char ***ret)
 	return (1);
 }
 
-int		ft_tetrivalid(char ***ret)
+int				ft_tetrivalid(char ***ret)
 {
 	if (ft_tetri_count(ret) < 0)
 		return (-1);

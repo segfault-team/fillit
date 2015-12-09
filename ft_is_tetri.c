@@ -6,12 +6,11 @@
 /*   By: vlistrat <vlistrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 12:07:13 by vlistrat          #+#    #+#             */
-/*   Updated: 2015/12/09 12:07:17 by vlistrat         ###   ########.fr       */
+/*   Updated: 2015/12/09 12:30:37 by vlistrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-
 
 int	ft_part_one(char **ret, int j, int k)
 {

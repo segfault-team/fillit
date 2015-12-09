@@ -6,7 +6,7 @@
 /*   By: vlistrat <vlistrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/07 12:07:24 by vlistrat          #+#    #+#             */
-/*   Updated: 2015/12/07 18:10:26 by vlistrat         ###   ########.fr       */
+/*   Updated: 2015/12/09 12:31:46 by vlistrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int		ft_case(char c)
 	return (-1);
 }
 
-int		ft_valid_grid(char *buf, int ret)
+int				ft_valid_grid(char *buf, int ret)
 {
 	int		i;
 	int		j;
@@ -56,7 +56,7 @@ int		ft_valid_grid(char *buf, int ret)
 	return (1);
 }
 
-int		ft_count(char *buf)
+int				ft_count(char *buf)
 {
 	int		i;
 	int		ret;
@@ -71,15 +71,3 @@ int		ft_count(char *buf)
 	}
 	return (ret);
 }
-
-/*int		ft_valid_tetri(char *buf)
-{
-	int		i;
-	int		j;
-
-	i = 0;
-	j = 0;
-	while (buf)
-	{
-	}
-}*/
