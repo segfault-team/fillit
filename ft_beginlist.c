@@ -1,22 +1,22 @@
 #include "fillit.h"
 
-t_list			*ft_addlist(t_list *begin_list)
+t_flist			*ft_addlist(t_flist *begin_list)
 {
-	t_list		maillon;
+	t_flist		*maillon;
 
-	maillon = (t_list*)malloc(sizeof(t_list));
-	if (maillon == NULL)
+	maillon = (t_flist*)malloc(sizeof(t_flist));
+	if (!maillon)
 		return (NULL);
-	maillon->next = begin_list;
-	return (maillon)
+	maillon->next = begin_list->next;
+	return (maillon);
 }
 
-t_list			*ft_makelist(char ***ret)
+t_flist			*ft_makelist(char ***ret)
 {
-	t_list		*begin_list;
+	t_flist		*begin_list;
 	int			i;
 
-	begin_list = (t_list*)malloc(sizeof(t_list));
+	begin_list = (t_flist*)malloc(sizeof(t_flist));
 	if (begin_list == NULL)
 		return (NULL);
 	i = 0;
@@ -29,7 +29,7 @@ t_list			*ft_makelist(char ***ret)
 	return (begin_list);
 }
 
-int				ft_lstlen(t_list *begin_list)	//au cas ou
+int				ft_lstlen(t_flist *begin_list)	//au cas ou
 {
 	int			i;
 

@@ -17,7 +17,8 @@ int		main(int ac, char **av)
 	char	*buf;
 	char	***aff;
 	int		len;
-	t_list	*begin_list;
+	t_flist	*begin_list;
+
 	if (ac != 2)
 	{
 		ft_putendl_fd("error", 1);
@@ -31,8 +32,8 @@ int		main(int ac, char **av)
 		return (0);
 	}
 	aff = ft_convert(buf);
-	begin_list = ft_makelist(ret);		//on cree le nb d'elements de la liste
-	begin_list = ft_tetrivalid(ret);	//on remplit les elements de la liste donc le bon ordre
+	begin_list = ft_makelist(aff);		//on cree le nb d'elements de la liste
+	begin_list = ft_tetrivalid(aff, begin_list);	//on remplit les elements de la liste donc le bon ordre
 /*	if (ft_tetrivalid(aff) < 0)
 	{
 		ft_putendl_fd("error", 1);

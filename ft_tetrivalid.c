@@ -40,14 +40,14 @@ static int		ft_tetri_count(char ***ret)
 		i++;
 	}
 	return (1);
-	}
+}
 
-t_list			*ft_tetri_pos(char ***ret, t_list *begin_list)
+t_flist			*ft_tetri_pos(char ***ret, t_flist *begin_list)
 {
 	int		i;
 	int		j;
 	int		k;
-	t_list	maillon;
+	t_flist	*maillon;
 
 	maillon = begin_list;												//on set le maillon sur le debut de la liste
 	i = 0;
@@ -67,18 +67,27 @@ t_list			*ft_tetri_pos(char ***ret, t_list *begin_list)
 				j = 4;
 			}
 			else if (ret[i][j][k] == '#' && ft_is_tetri(ret[i], j, k) == -1)
-				return (NULL);											//si tetri invalide on return NULL, afficher "error"
-			j++;
+			{
+				begin_list = NULL;
+				return (begin_list);											//si tetri invalide on return NULL, afficher "error"
+				j++;
+			}
 		}
 	}
 	return (begin_list);
 }
 
-t_list				*ft_tetrivalid(char ***ret, t_list *begin_list)
+t_flist				*ft_tetrivalid(char ***ret, t_flist *begin_list)
 {
 	if (ft_tetri_count(ret) < 0)
-		return (-1);
-	else if (ft_tetri_pos(ret, begin_list) < 0)
-		return (-1);
-	return (1);
+	{
+		begin_list = NULL;
+		return (begin_list);
+	}
+	else if (!(ft_tetri_pos(ret, begin_list)))
+	{
+		begin_list = NULL;
+		return (begin_list);
+	}
+	return (ft_tetri_pos(ret, begin_list));
 }

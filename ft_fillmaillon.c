@@ -1,6 +1,6 @@
 #include "fillit.h"
 
-static void		ft_fillbis(t_list maillon, int n)
+static void		ft_fillbis(t_flist *maillon, int n)
 {
 	if (n == 12)
 		ft_struct_twelve(maillon);
@@ -20,7 +20,7 @@ static void		ft_fillbis(t_list maillon, int n)
 		ft_struct_nineteen(maillon);
 }
 	
-void			ft_fillmaillon(t_list maillon, int n)
+void			ft_fillmaillon(t_flist *maillon, int n)
 {
 	if (n == 1)
 		ft_struct_one(maillon);

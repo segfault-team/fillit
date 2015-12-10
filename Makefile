@@ -23,7 +23,13 @@ SRC = main.c \
 	  ft_six_ten.c \
 	  ft_eleven_fifteen.c \
 	  ft_sixteen_nineteen.c \
-	  ft_is_tetri.c
+	  ft_is_tetri.c \
+	  ft_beginlist.c \
+	  ft_fillmaillon.c \
+	  ft_s_one_five.c\
+	  ft_s_six_ten.c \
+	  ft_s_eleven_fifteen.c \
+	  ft_s_sixteen_nineteen.c \
 
 OBJ = $(SRC:.c=.o)
 
@@ -35,7 +41,7 @@ $(NAME): $(OBJ)
 	gcc -o $(NAME) $(OBJ) -L. -$(LIB)
 
 $(OBJ):
-	gcc -c $(SRC) -Wall -Werror -Wextra
+	gcc -c $(SRC)
 
 clean:
 	/bin/rm -f $(OBJ)
