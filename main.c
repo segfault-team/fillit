@@ -17,7 +17,7 @@ int		main(int ac, char **av)
 	char	*buf;
 	char	***aff;
 	int		len;
-
+	t_list	*begin_list;
 	if (ac != 2)
 	{
 		ft_putendl_fd("error", 1);
@@ -31,11 +31,13 @@ int		main(int ac, char **av)
 		return (0);
 	}
 	aff = ft_convert(buf);
-	if (ft_tetrivalid(aff) < 0)
+	begin_list = ft_makelist(ret);
+	begin_list = ft_tetrivalid(ret);
+/*	if (ft_tetrivalid(aff) < 0)
 	{
 		ft_putendl_fd("error", 1);
 		return (0);
-	}
+	}*/
 	ft_aff(aff, buf);
 	free(buf);
 	free(aff);

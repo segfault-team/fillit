@@ -20,6 +20,20 @@
 # include <fcntl.h>
 # include "libft.h"
 
+typedef struct			s_struct
+{
+	int		x;
+	int		y;
+	int		x1;
+	int		y1;
+	int		x2;
+	int		y2;
+	int		x3;
+	int		y3;
+	char	*forme;
+	t_list	*next;
+}						t_list;
+
 char	*ft_read(char **av);
 int		ft_valid_grid(char *buf, int ret);
 int		ft_count(char *buf);
@@ -49,5 +63,28 @@ int		ft_nineteen(char **ret, int j, int k);
 int		ft_part_one(char **ret, int j, int k);
 int		ft_part_two(char **ret, int j, int k);
 int		ft_is_tetri(char **ret, int j, int k);
+void	ft_struct_one(t_list maillon);
+void	ft_struct_two(t_list maillon);
+void	ft_struct_three(t_list maillon);
+void	ft_struct_four(t_list maillon);
+void	ft_struct_five(t_list maillon);
+void	ft_struct_six(t_list maillon);
+void	ft_struct_seven(t_list maillon);
+void	ft_struct_eight(t_list maillon);
+void	ft_struct_nine(t_list maillon);
+void	ft_struct_ten(t_list maillon);
+void	ft_struct_eleven(t_list maillon);
+void	ft_struct_twelve(t_list maillon);
+void	ft_struct_thirteen(t_list maillon);
+void	ft_struct_fourteen(t_list maillon);
+void	ft_struct_fifteen(t_list maillon);
+void	ft_struct_sixteen(t_list maillon);
+void	ft_struct_seventeen(t_list maillon);
+void	ft_struct_eighteen(t_list maillon);
+void	ft_struct_nineteen(t_list maillon);
+t_list	*ft_addlist(t_list *begin_list);
+t_list	*ft_makelist(char ***ret);
+int		ft_lstlen(t_list *begin_list);
+void	ft_fillmaillon(t_list maillon, int n);
 
 #endif

@@ -40,14 +40,16 @@ static int		ft_tetri_count(char ***ret)
 		i++;
 	}
 	return (1);
-}
+	}
 
-static int		ft_tetri_pos(char ***ret)
+t_list			*ft_tetri_pos(char ***ret, t_list *begin_list)
 {
 	int		i;
 	int		j;
 	int		k;
+	t_list	maillon;
 
+	maillon = begin_list;												//on set le maillon sur le debut de la liste
 	i = 0;
 	while (ret[i])
 	{
@@ -59,22 +61,24 @@ static int		ft_tetri_pos(char ***ret)
 				k++;
 			if (ret[i][j][k] == '#' && ft_is_tetri(ret[i], j, k) > 0)
 			{
+				ft_fillmaillon(maillon, ft_is_tetri(ret[i], j, k));		//si un tetri est reconnu valide, on stocke ses valeurs absolues dans maillon
+				maillon = maillon->next;								//si correct on passe au maillon suivant
 				i++;
 				j = 4;
 			}
 			else if (ret[i][j][k] == '#' && ft_is_tetri(ret[i], j, k) == -1)
-				return (-1);
+				return (NULL);											//si tetri invalide on return NULL, afficher "error"
 			j++;
 		}
 	}
-	return (1);
+	return (begin_list);
 }
 
-int				ft_tetrivalid(char ***ret)
+t_list				*ft_tetrivalid(char ***ret, t_list *begin_list)
 {
 	if (ft_tetri_count(ret) < 0)
 		return (-1);
-	else if (ft_tetri_pos(ret) < 0)
+	else if (ft_tetri_pos(ret, begin_list) < 0)
 		return (-1);
 	return (1);
 }
