@@ -31,8 +31,8 @@ int		main(int ac, char **av)
 		return (0);
 	}
 	aff = ft_convert(buf);
-	begin_list = ft_makelist(ret);
-	begin_list = ft_tetrivalid(ret);
+	begin_list = ft_makelist(ret);		//on cree le nb d'elements de la liste
+	begin_list = ft_tetrivalid(ret);	//on remplit les elements de la liste donc le bon ordre
 /*	if (ft_tetrivalid(aff) < 0)
 	{
 		ft_putendl_fd("error", 1);
