@@ -1,6 +1,6 @@
 #include "fillit.h"
 
-t_flist		*ft_struct_one(t_list *new)
+t_flist		*ft_struct_one(t_flist *new)
 {
 	new = (t_flist*)malloc(sizeof(*new));
 	if (new == NULL)

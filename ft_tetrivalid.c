@@ -6,11 +6,21 @@
 /*   By: vlistrat <vlistrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/07 18:40:13 by vlistrat          #+#    #+#             */
-/*   Updated: 2015/12/11 16:38:50 by vlistrat         ###   ########.fr       */
+/*   Updated: 2015/12/11 20:42:27 by vlistrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+
+static int		ft_count_ret(char ***ret)
+{
+	int 		i;
+
+	i = 0;
+	while (ret[i] != NULL)
+		i++;
+	return (i - 1);
+}
 
 static int		ft_tetri_count(char ***ret)
 {
@@ -42,18 +52,22 @@ static int		ft_tetri_count(char ***ret)
 	return (1);
 }
 
-t_flist			**ft_tetri_pos(char ***ret, t_flist begin_list)
+static void		ft_flstadd(t_flist **begin_list, t_flist *maillon)
+{
+	maillon->next = *begin_list;
+	begin_list = &maillon;
+}
+
+
+t_flist			*ft_tetri_pos(char ***ret, t_flist **begin_list)
 {
 	int			i;
 	int			j;
 	int			k;
 	t_flist		*maillon;
-	t_flist		*maillon2;
 
-	maillon = NULL;
-	maillon2 = NULL;
-	i = 0;
-	while (ret[i])
+	i = ft_count_ret(ret);
+	while (i >= 0)
 	{
 		j = 0;
 		while (j < 4)
@@ -63,46 +77,37 @@ t_flist			**ft_tetri_pos(char ***ret, t_flist begin_list)
 				k++;
 			if (ret[i][j][k] == '#' && ft_is_tetri(ret[i], j, k) > 0)
 			{
-				if (i == 0)
+				if (i == ft_count_ret(ret))
 				{
 					maillon = ft_fillmaillon(maillon, ft_is_tetri(ret[i], j, k));
-					maillon->next = *begin_list;
-					*begin_list = maillon;
-					i++;
+					begin_list = &maillon;
+					i--;
 					j = 4;
 				}
-				else
+				else if (i < ft_count_ret(ret)) 
 				{
-					maillon2 = ft_fillmaillon(maillon2, ft_is_tetri(ret[i], j, k));
-					maillon2->next = *begin_list;
-					*begin_list = maillon2;
-					i++;
+					maillon = ft_fillmaillon(maillon, ft_is_tetri(ret[i], j, k));
+					ft_flstadd(begin_list, maillon);
+					i--;
 					j = 4;
 				}
 			}
 			else if (ret[i][j][k] == '#' && ft_is_tetri(ret[i], j, k) == -1)
 			{
-				begin_list = NULL;
-				return (begin_list);											//si tetri invalide on return NULL, afficher "error"
+				maillon = NULL;
+				return (maillon);
 			}
 			j++;
 		}
 	}
-	begin_list = &maillon;
-	return (begin_list);
+	return (maillon);
 }
 
-t_flist				**ft_tetrivalid(char ***ret, t_flist **begin_list)
+int				ft_tetrivalid(char ***ret, t_flist **begin_list)
 {
 	if (ft_tetri_count(ret) < 0)
-	{
-		begin_list = NULL;
-		return (begin_list);
-	}
-	else if (!(ft_tetri_pos(ret, begin_list)))
-	{
-		begin_list = NULL;
-		return (begin_list);
-	}
-	return (ft_tetri_pos(ret, begin_list));
+		return (-1);
+	else if (ft_tetri_pos(ret, begin_list) == NULL)
+		return (-1);
+	return (1);
 }

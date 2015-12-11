@@ -1,6 +1,6 @@
 #include "fillit.h"
 
-t_flist		ft_struct_sixteen(t_flist *new)
+t_flist		*ft_struct_sixteen(t_flist *new)
 {
 	new = (t_flist*)malloc(sizeof(*new));
 	if (new == NULL)
@@ -19,7 +19,7 @@ t_flist		ft_struct_sixteen(t_flist *new)
 	return (new);
 }
 
-t_flist		ft_struct_seventeen(t_flist *new)
+t_flist		*ft_struct_seventeen(t_flist *new)
 {
 	new = (t_flist*)malloc(sizeof(*new));
 	if (new == NULL)
@@ -38,7 +38,7 @@ t_flist		ft_struct_seventeen(t_flist *new)
 	return (new);
 }
 
-t_flist		ft_struct_eighteen(t_flist *new)
+t_flist		*ft_struct_eighteen(t_flist *new)
 {
 	new = (t_flist*)malloc(sizeof(*new));
 	if (new == NULL)
@@ -57,7 +57,7 @@ t_flist		ft_struct_eighteen(t_flist *new)
 	return (new);
 }
 
-t_flist		ft_struct_nineteen(t_flist *new)
+t_flist		*ft_struct_nineteen(t_flist *new)
 {
 	new = (t_flist*)malloc(sizeof(*new));
 	if (new == NULL)
