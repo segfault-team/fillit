@@ -89,6 +89,7 @@ t_flist			*ft_tetri_pos(char ***ret, t_flist **begin_list, t_flist *newlist)
 				{
 					maillon = ft_fillmaillon(maillon, ft_is_tetri(ret[i], j, k));
 					ft_flstadd(begin_list, maillon);
+				//	ft_lstadd(&newlist,maillon);	//TEST_2 (adresse de pointeur sur maillon || "**lst")
 					newlist->next = maillon;	//TEST
 					newlist = newlist->next;	//TEST
 					i--;
