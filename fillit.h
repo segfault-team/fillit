@@ -6,7 +6,7 @@
 /*   By: vlistrat <vlistrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/07 11:36:40 by vlistrat          #+#    #+#             */
-/*   Updated: 2015/12/11 19:34:38 by vlistrat         ###   ########.fr       */
+/*   Updated: 2015/12/12 12:06:49 by vlistrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int						ft_count(char *buf);
 char					***ft_fill(char *buf, char ***ret);
 void					ft_aff(char ***ret, char *buf);
 char					***ft_convert(char *buf);
-int						ft_tetrivalid(char ***ret, t_flist **begin_list);
+int						ft_tetrivalid(char ***ret, t_flist *newlist);
 int						ft_one(char **ret, int j, int k);
 int						ft_two(char **ret, int j, int k);
 int						ft_three(char **ret, int j, int k);
@@ -88,6 +88,6 @@ t_flist					*ft_addlist(t_flist **begin_list);
 t_flist					**ft_makelist(char ***ret, t_flist **begin_list);
 int						ft_lstlen(t_flist *begin_list);
 t_flist					*ft_fillmaillon(t_flist *maillon, int n);
-t_flist					*ft_tetri_pos(char ***ret, t_flist **begin_list);
+t_flist					*ft_tetri_pos(char ***ret, t_flist *begin_list);
 
 #endif

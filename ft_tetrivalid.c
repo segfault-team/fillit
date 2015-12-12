@@ -6,7 +6,7 @@
 /*   By: vlistrat <vlistrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/07 18:40:13 by vlistrat          #+#    #+#             */
-/*   Updated: 2015/12/11 20:42:27 by vlistrat         ###   ########.fr       */
+/*   Updated: 2015/12/12 12:31:26 by vlistrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,19 +52,13 @@ static int		ft_tetri_count(char ***ret)
 	return (1);
 }
 
-static void		ft_flstadd(t_flist **begin_list, t_flist *maillon)
-{
-	maillon->next = *begin_list;
-	begin_list = &maillon;
-}
-
-
-t_flist			*ft_tetri_pos(char ***ret, t_flist **begin_list, t_flist *newlist)
+t_flist			*ft_tetri_pos(char ***ret, t_flist *newlist)
 {
 	int			i;
 	int			j;
 	int			k;
 	t_flist		*maillon;
+	t_flist		*maillon2;
 
 	i = ft_count_ret(ret);
 	while (i >= 0)
@@ -80,18 +74,15 @@ t_flist			*ft_tetri_pos(char ***ret, t_flist **begin_list, t_flist *newlist)
 				if (i == ft_count_ret(ret))
 				{
 					maillon = ft_fillmaillon(maillon, ft_is_tetri(ret[i], j, k));
-				//	begin_list = &maillon;
-					newlist = maillon;	//TEST
+					newlist = maillon;
 					i--;
 					j = 4;
 				}
 				else if (i < ft_count_ret(ret)) 
 				{
-					maillon = ft_fillmaillon(maillon, ft_is_tetri(ret[i], j, k));
-					ft_flstadd(begin_list, maillon);
-				//	ft_lstadd(&newlist,maillon);	//TEST_2 (adresse de pointeur sur maillon || "**lst")
-					newlist->next = maillon;	//TEST
-					newlist = newlist->next;	//TEST
+					maillon2 = ft_fillmaillon(maillon2, ft_is_tetri(ret[i], j, k));
+					newlist->next = maillon2;
+					newlist = newlist->next;
 					i--;
 					j = 4;
 				}
@@ -107,7 +98,7 @@ t_flist			*ft_tetri_pos(char ***ret, t_flist **begin_list, t_flist *newlist)
 	return (maillon);
 }
 
-int				ft_tetrivalid(char ***ret, t_flist **begin_list)
+int				ft_tetrivalid(char ***ret, t_flist *begin_list)
 {
 	if (ft_tetri_count(ret) < 0)
 		return (-1);
