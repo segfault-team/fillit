@@ -59,7 +59,7 @@ static void		ft_flstadd(t_flist **begin_list, t_flist *maillon)
 }
 
 
-t_flist			*ft_tetri_pos(char ***ret, t_flist **begin_list)
+t_flist			*ft_tetri_pos(char ***ret, t_flist **begin_list, t_flist *newlist)
 {
 	int			i;
 	int			j;
@@ -80,7 +80,8 @@ t_flist			*ft_tetri_pos(char ***ret, t_flist **begin_list)
 				if (i == ft_count_ret(ret))
 				{
 					maillon = ft_fillmaillon(maillon, ft_is_tetri(ret[i], j, k));
-					begin_list = &maillon;
+				//	begin_list = &maillon;
+					newlist = maillon;	//TEST
 					i--;
 					j = 4;
 				}
@@ -88,6 +89,8 @@ t_flist			*ft_tetri_pos(char ***ret, t_flist **begin_list)
 				{
 					maillon = ft_fillmaillon(maillon, ft_is_tetri(ret[i], j, k));
 					ft_flstadd(begin_list, maillon);
+					newlist->next = maillon;	//TEST
+					newlist = newlist->next;	//TEST
 					i--;
 					j = 4;
 				}
