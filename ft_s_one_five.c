@@ -1,6 +1,6 @@
 #include "fillit.h"
 
-t_flist		*ft_struct_one(t_flist *new)
+t_flist		*ft_struct_one(t_flist *new, int i)
 {
 	new = (t_flist*)malloc(sizeof(*new));
 	if (new == NULL)
@@ -14,12 +14,13 @@ t_flist		*ft_struct_one(t_flist *new)
 	new->x3 = 1;
 	new->y3 = 1;
 	new->forme = "##\n##";
+	new->letter = (char)i + 'A';
 	new->prev = NULL;
 	new->next = NULL;
 	return (new);
 }
 
-t_flist		*ft_struct_two(t_flist *new)
+t_flist		*ft_struct_two(t_flist *new, int i)
 {
 	new = (t_flist*)malloc(sizeof(*new));
 	if (new == NULL)
@@ -33,12 +34,13 @@ t_flist		*ft_struct_two(t_flist *new)
 	new->x3 = 3;
 	new->y3 = 0;
 	new->forme = "####";
+	new->letter = (char)i + 'A';
 	new->prev = NULL;
 	new->next = NULL;
 	return (new);
 }
 
-t_flist		*ft_struct_three(t_flist *new)
+t_flist		*ft_struct_three(t_flist *new, int i)
 {
 	new = (t_flist*)malloc(sizeof(*new));
 	if (new == NULL)
@@ -52,12 +54,13 @@ t_flist		*ft_struct_three(t_flist *new)
 	new->x3 = 0;
 	new->y3 = 3;
 	new->forme = "#\n#\n#\n#";
+	new->letter = (char)i + 'A';
 	new->prev = NULL;
 	new->next = NULL;
 	return (new);
 }
 
-t_flist		*ft_struct_four(t_flist *new)
+t_flist		*ft_struct_four(t_flist *new, int i)
 {
 	new = (t_flist*)malloc(sizeof(*new));
 	if (new == NULL)
@@ -71,12 +74,13 @@ t_flist		*ft_struct_four(t_flist *new)
 	new->x3 = 2;
 	new->y3 = 1;
 	new->forme = "##.\n.##";
+	new->letter = (char)i + 'A';
 	new->prev = NULL;
 	new->next = NULL;
 	return (new);
 }
 
-t_flist		*ft_struct_five(t_flist *new)
+t_flist		*ft_struct_five(t_flist *new, int i)
 {
 	new = (t_flist*)malloc(sizeof(*new));
 	if (new == NULL)
@@ -90,6 +94,7 @@ t_flist		*ft_struct_five(t_flist *new)
 	new->x3 = -1;
 	new->y3 = 2;
 	new->forme = ".#\n##\n#.";
+	new->letter = (char)i + 'A';
 	new->prev = NULL;
 	new->next = NULL;
 	return (new);

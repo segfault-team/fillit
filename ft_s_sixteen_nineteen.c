@@ -1,6 +1,6 @@
 #include "fillit.h"
 
-t_flist		*ft_struct_sixteen(t_flist *new)
+t_flist		*ft_struct_sixteen(t_flist *new, int i)
 {
 	new = (t_flist*)malloc(sizeof(*new));
 	if (new == NULL)
@@ -14,12 +14,13 @@ t_flist		*ft_struct_sixteen(t_flist *new)
 	new->x3 = 1;
 	new->y3 = 1;
 	new->forme = "###\n.#.";
+	new->letter = (char)i + 'A';
 	new->prev = NULL;
 	new->next = NULL;
 	return (new);
 }
 
-t_flist		*ft_struct_seventeen(t_flist *new)
+t_flist		*ft_struct_seventeen(t_flist *new, int i)
 {
 	new = (t_flist*)malloc(sizeof(*new));
 	if (new == NULL)
@@ -33,12 +34,13 @@ t_flist		*ft_struct_seventeen(t_flist *new)
 	new->x3 = -1;
 	new->y3 = 1;
 	new->forme = ".#\n##\n.#";
+	new->letter = (char)i + 'A';
 	new->prev = NULL;
 	new->next = NULL;
 	return (new);
 }
 
-t_flist		*ft_struct_eighteen(t_flist *new)
+t_flist		*ft_struct_eighteen(t_flist *new, int i)
 {
 	new = (t_flist*)malloc(sizeof(*new));
 	if (new == NULL)
@@ -52,12 +54,13 @@ t_flist		*ft_struct_eighteen(t_flist *new)
 	new->x3 = 1;
 	new->y3 = 1;
 	new->forme = ".#.\n###";
+	new->letter = (char)i + 'A';
 	new->prev = NULL;
 	new->next = NULL;
 	return (new);
 }
 
-t_flist		*ft_struct_nineteen(t_flist *new)
+t_flist		*ft_struct_nineteen(t_flist *new, int i)
 {
 	new = (t_flist*)malloc(sizeof(*new));
 	if (new == NULL)
@@ -71,6 +74,7 @@ t_flist		*ft_struct_nineteen(t_flist *new)
 	new->x3 = 1;
 	new->y3 = 1;
 	new->forme = "#.\n##\n#.";
+	new->letter = (char)i + 'A';
 	new->prev = NULL;
 	new->next = NULL;
 	return (new);

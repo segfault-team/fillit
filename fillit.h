@@ -6,7 +6,7 @@
 /*   By: vlistrat <vlistrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/07 11:36:40 by vlistrat          #+#    #+#             */
-/*   Updated: 2015/12/12 12:06:49 by vlistrat         ###   ########.fr       */
+/*   Updated: 2015/12/14 15:33:18 by vlistrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct			s_flist
 	int					x3;
 	int					y3;
 	char				*forme;
+	char				letter;
 	struct s_flist		*prev;
 	struct s_flist		*next;
 }						t_flist;
@@ -89,5 +90,5 @@ t_flist					**ft_makelist(char ***ret, t_flist **begin_list);
 int						ft_lstlen(t_flist *begin_list);
 t_flist					*ft_fillmaillon(t_flist *maillon, int n);
 t_flist					*ft_tetri_pos(char ***ret, t_flist *begin_list);
-
+int						ft_error(int ft);
 #endif

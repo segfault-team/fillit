@@ -1,6 +1,6 @@
 #include
 
-char		**ft_map()
+char		**ft_map(char **map)
 {
 	int 	i;
 	
