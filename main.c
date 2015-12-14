@@ -6,11 +6,12 @@
 /*   By: vlistrat <vlistrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/07 11:34:04 by vlistrat          #+#    #+#             */
-/*   Updated: 2015/12/14 14:11:50 by vlistrat         ###   ########.fr       */
+/*   Updated: 2015/12/14 18:54:53 by vlistrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+
 
 int		main(int ac, char **av)
 {
@@ -19,7 +20,11 @@ int		main(int ac, char **av)
 	int		len;
 	t_flist	*begin_list;
 	t_flist *list;
+	char	*test;
+	char	**map;
+	int		i;
 
+	i = 0;
 	begin_list = NULL;
 	if (ac != 2)
 	{
@@ -35,16 +40,28 @@ int		main(int ac, char **av)
 	}
 	aff = ft_convert(buf);
 	list = ft_tetri_pos(aff, begin_list);
-	while (list)
+/*	while (list)
 	{
-		ft_putendl(list->forme);
+		ft_putchar(list->letter);
+	//	ft_putchar('\n');
+		ft_putnbr(list->size);
 		list = list->next;
-	}/*
-	if (list == NULL)
+		ft_putchar('\n');
+	}*/
+	ft_putchar('\n');
+	/*if (list == NULL)
 	{
 		ft_putendl_fd("error", 1);
 		return (0);
 	}*/
+	map = ft_map(map, list);
+	map = ft_clear_map(map);	
+	while (map[i])
+	{
+		ft_putendl(map[i]);
+		i++;
+	}
+	ft_putchar('\n');
 	ft_aff(aff, buf);
 	free(buf);
 	free(aff);

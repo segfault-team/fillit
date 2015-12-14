@@ -6,7 +6,7 @@
 /*   By: vlistrat <vlistrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/07 18:40:13 by vlistrat          #+#    #+#             */
-/*   Updated: 2015/12/12 12:31:26 by vlistrat         ###   ########.fr       */
+/*   Updated: 2015/12/14 16:18:22 by vlistrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,9 @@ t_flist			*ft_tetri_pos(char ***ret, t_flist *newlist)
 	t_flist		*maillon;
 	t_flist		*maillon2;
 
-	i = ft_count_ret(ret);
-	while (i >= 0)
+//	i = ft_count_ret(ret);
+	i = 0;
+	while (ret[i])
 	{
 		j = 0;
 		while (j < 4)
@@ -71,19 +72,19 @@ t_flist			*ft_tetri_pos(char ***ret, t_flist *newlist)
 				k++;
 			if (ret[i][j][k] == '#' && ft_is_tetri(ret[i], j, k) > 0)
 			{
-				if (i == ft_count_ret(ret))
+				if (i == 0)
 				{
-					maillon = ft_fillmaillon(maillon, ft_is_tetri(ret[i], j, k));
+					maillon = ft_fillmaillon(maillon, ft_is_tetri(ret[i], j, k), i);
 					newlist = maillon;
-					i--;
+					i++;
 					j = 4;
 				}
-				else if (i < ft_count_ret(ret)) 
+				else if (i > 0) 
 				{
-					maillon2 = ft_fillmaillon(maillon2, ft_is_tetri(ret[i], j, k));
+					maillon2 = ft_fillmaillon(maillon2, ft_is_tetri(ret[i], j, k), i);
 					newlist->next = maillon2;
 					newlist = newlist->next;
-					i--;
+					i++;
 					j = 4;
 				}
 			}

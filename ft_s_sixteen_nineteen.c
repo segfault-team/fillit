@@ -13,7 +13,7 @@ t_flist		*ft_struct_sixteen(t_flist *new, int i)
 	new->y2 = 0;
 	new->x3 = 1;
 	new->y3 = 1;
-	new->forme = "###\n.#.";
+	new->size = 3;
 	new->letter = (char)i + 'A';
 	new->prev = NULL;
 	new->next = NULL;
@@ -33,7 +33,7 @@ t_flist		*ft_struct_seventeen(t_flist *new, int i)
 	new->y2 = 2;
 	new->x3 = -1;
 	new->y3 = 1;
-	new->forme = ".#\n##\n.#";
+	new->size = 3;
 	new->letter = (char)i + 'A';
 	new->prev = NULL;
 	new->next = NULL;
@@ -53,7 +53,7 @@ t_flist		*ft_struct_eighteen(t_flist *new, int i)
 	new->y2 = 1;
 	new->x3 = 1;
 	new->y3 = 1;
-	new->forme = ".#.\n###";
+	new->size = 3;
 	new->letter = (char)i + 'A';
 	new->prev = NULL;
 	new->next = NULL;
@@ -73,7 +73,7 @@ t_flist		*ft_struct_nineteen(t_flist *new, int i)
 	new->y2 = 2;
 	new->x3 = 1;
 	new->y3 = 1;
-	new->forme = "#.\n##\n#.";
+	new->size = 3;
 	new->letter = (char)i + 'A';
 	new->prev = NULL;
 	new->next = NULL;

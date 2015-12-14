@@ -6,7 +6,7 @@
 /*   By: vlistrat <vlistrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/07 11:36:40 by vlistrat          #+#    #+#             */
-/*   Updated: 2015/12/14 15:33:18 by vlistrat         ###   ########.fr       */
+/*   Updated: 2015/12/14 18:13:53 by vlistrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct			s_flist
 	int					y2;
 	int					x3;
 	int					y3;
-	char				*forme;
+	int					size;
 	char				letter;
 	struct s_flist		*prev;
 	struct s_flist		*next;
@@ -66,29 +66,32 @@ int						ft_nineteen(char **ret, int j, int k);
 int						ft_part_one(char **ret, int j, int k);
 int						ft_part_two(char **ret, int j, int k);
 int						ft_is_tetri(char **ret, int j, int k);
-t_flist					*ft_struct_one(t_flist *maillon);
-t_flist					*ft_struct_two(t_flist *maillon);
-t_flist					*ft_struct_three(t_flist *maillon);
-t_flist					*ft_struct_four(t_flist *maillon);
-t_flist					*ft_struct_five(t_flist *maillon);
-t_flist					*ft_struct_six(t_flist *maillon);
-t_flist					*ft_struct_seven(t_flist *maillon);
-t_flist					*ft_struct_eight(t_flist *maillon);
-t_flist					*ft_struct_nine(t_flist *maillon);
-t_flist					*ft_struct_ten(t_flist *maillon);
-t_flist					*ft_struct_eleven(t_flist *maillon);
-t_flist					*ft_struct_twelve(t_flist *maillon);
-t_flist					*ft_struct_thirteen(t_flist *maillon);
-t_flist					*ft_struct_fourteen(t_flist *maillon);
-t_flist					*ft_struct_fifteen(t_flist *maillon);
-t_flist					*ft_struct_sixteen(t_flist *maillon);
-t_flist					*ft_struct_seventeen(t_flist *maillon);
-t_flist					*ft_struct_eighteen(t_flist *maillon);
-t_flist					*ft_struct_nineteen(t_flist *maillon);
+t_flist					*ft_struct_one(t_flist *maillon, int i);
+t_flist					*ft_struct_two(t_flist *maillon, int i);
+t_flist					*ft_struct_three(t_flist *maillon, int i);
+t_flist					*ft_struct_four(t_flist *maillon, int i);
+t_flist					*ft_struct_five(t_flist *maillon, int i);
+t_flist					*ft_struct_six(t_flist *maillon, int i);
+t_flist					*ft_struct_seven(t_flist *maillon, int i);
+t_flist					*ft_struct_eight(t_flist *maillon, int i);
+t_flist					*ft_struct_nine(t_flist *maillon, int i);
+t_flist					*ft_struct_ten(t_flist *maillon, int i);
+t_flist					*ft_struct_eleven(t_flist *maillon, int i);
+t_flist					*ft_struct_twelve(t_flist *maillon, int i);
+t_flist					*ft_struct_thirteen(t_flist *maillon, int i);
+t_flist					*ft_struct_fourteen(t_flist *maillon, int i);
+t_flist					*ft_struct_fifteen(t_flist *maillon, int i);
+t_flist					*ft_struct_sixteen(t_flist *maillon, int i);
+t_flist					*ft_struct_seventeen(t_flist *maillon, int i);
+t_flist					*ft_struct_eighteen(t_flist *maillon, int i);
+t_flist					*ft_struct_nineteen(t_flist *maillon, int i);
 t_flist					*ft_addlist(t_flist **begin_list);
 t_flist					**ft_makelist(char ***ret, t_flist **begin_list);
 int						ft_lstlen(t_flist *begin_list);
-t_flist					*ft_fillmaillon(t_flist *maillon, int n);
+t_flist					*ft_fillmaillon(t_flist *maillon, int n, int i);
 t_flist					*ft_tetri_pos(char ***ret, t_flist *begin_list);
 int						ft_error(int ft);
+char					**ft_map(char **map, t_flist *list);
+char					**ft_clear_map(char **map);
+
 #endif
