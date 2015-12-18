@@ -6,7 +6,7 @@
 /*   By: vlistrat <vlistrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/07 11:36:40 by vlistrat          #+#    #+#             */
-/*   Updated: 2015/12/17 20:01:26 by vlistrat         ###   ########.fr       */
+/*   Updated: 2015/12/18 18:02:31 by vlistrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,12 @@ typedef struct			s_flist
 }						t_flist;
 
 char					*ft_read(char **av);
-int						ft_valid_grid(char *buf, int ret);
+int						ft_valgrid(char *buf, int ret);
 int						ft_count(char *buf);
 char					***ft_fill(char *buf, char ***ret);
 void					ft_aff(char ***ret, char *buf);
 char					***ft_convert(char *buf);
-int						ft_tetrivalid(char ***ret, t_flist *newlist);
+int						ft_tetri_count(char ***ret);
 int						ft_one(char **ret, int j, int k);
 int						ft_two(char **ret, int j, int k);
 int						ft_three(char **ret, int j, int k);
@@ -87,9 +87,6 @@ t_flist					*ft_struct_sixteen(t_flist *maillon, int i);
 t_flist					*ft_struct_seventeen(t_flist *maillon, int i);
 t_flist					*ft_struct_eighteen(t_flist *maillon, int i);
 t_flist					*ft_struct_nineteen(t_flist *maillon, int i);
-t_flist					*ft_addlist(t_flist **begin_list);
-t_flist					**ft_makelist(char ***ret, t_flist **begin_list);
-int						ft_lstlen(t_flist *begin_list);
 t_flist					*ft_fillmaillon(t_flist *maillon, int n, int i);
 t_flist					*ft_tetri_pos(char ***ret, t_flist *begin_list);
 int						ft_error(int ft);

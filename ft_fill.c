@@ -6,7 +6,7 @@
 /*   By: vlistrat <vlistrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/07 14:55:27 by vlistrat          #+#    #+#             */
-/*   Updated: 2015/12/07 16:01:45 by vlistrat         ###   ########.fr       */
+/*   Updated: 2015/12/18 17:36:14 by vlistrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ char	***ft_fill(char *buf, char ***ret)
 					i++;
 					l++;
 				}
+				if (buf[i] != '\n')
+					return (NULL);
 				ret[j][k][l] = '\0';
 				while (buf[i] == '\n')
 					i++;

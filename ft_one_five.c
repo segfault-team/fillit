@@ -6,7 +6,7 @@
 /*   By: vlistrat <vlistrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 12:07:04 by vlistrat          #+#    #+#             */
-/*   Updated: 2015/12/18 13:17:40 by vlistrat         ###   ########.fr       */
+/*   Updated: 2015/12/18 15:18:32 by vlistrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,7 @@ int	ft_three(char **ret, int j, int k)
 	{
 		if (ret[j + 1][k] == '#' && ret[j + 2][k] == '#'
 				&& ret[j + 3][k] == '#')
-		{
-			DEBUG
 			return (1);
-		}
 		else
 			return (-1);
 	}

@@ -6,7 +6,7 @@
 /*   By: vlistrat <vlistrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/07 18:40:13 by vlistrat          #+#    #+#             */
-/*   Updated: 2015/12/16 14:34:16 by vlistrat         ###   ########.fr       */
+/*   Updated: 2015/12/18 17:50:14 by vlistrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int		ft_count_ret(char ***ret)
 {
-	int 		i;
+	int		i;
 
 	i = 0;
 	while (ret[i] != NULL)
@@ -22,7 +22,7 @@ static int		ft_count_ret(char ***ret)
 	return (i - 1);
 }
 
-static int		ft_tetri_count(char ***ret)
+int				ft_tetri_count(char ***ret)
 {
 	int		i;
 	int		j;
@@ -45,11 +45,11 @@ static int		ft_tetri_count(char ***ret)
 			}
 			j++;
 		}
-		if (k != 4)
+		if (count != 4)
 			return (-1);
 		i++;
 	}
-	return (1);
+	return (2);
 }
 
 t_flist			*ft_tetri_pos(char ***ret, t_flist *newlist)
@@ -57,8 +57,8 @@ t_flist			*ft_tetri_pos(char ***ret, t_flist *newlist)
 	int			i;
 	int			j;
 	int			k;
-	t_flist		*maillon;
-	t_flist		*maillon2;
+	t_flist		*m;
+	t_flist		*m2;
 
 	i = 0;
 	while (ret[i])
@@ -73,15 +73,15 @@ t_flist			*ft_tetri_pos(char ***ret, t_flist *newlist)
 			{
 				if (i == 0)
 				{
-					maillon = ft_fillmaillon(maillon, ft_is_tetri(ret[i], j, k), i);
-					newlist = maillon;
+					m = ft_fillmaillon(m, ft_is_tetri(ret[i], j, k), i);
+					newlist = m;
 					i++;
 					j = 4;
 				}
-				else if (i > 0) 
+				else if (i > 0)
 				{
-					maillon2 = ft_fillmaillon(maillon2, ft_is_tetri(ret[i], j, k), i);
-					newlist->next = maillon2;
+					m2 = ft_fillmaillon(m2, ft_is_tetri(ret[i], j, k), i);
+					newlist->next = m2;
 					newlist = newlist->next;
 					i++;
 					j = 4;
@@ -89,20 +89,11 @@ t_flist			*ft_tetri_pos(char ***ret, t_flist *newlist)
 			}
 			else if (ret[i][j][k] == '#' && ft_is_tetri(ret[i], j, k) == -1)
 			{
-				maillon = NULL;
-				return (maillon);
+				m = NULL;
+				return (m);
 			}
 			j++;
 		}
 	}
-	return (maillon);
-}
-
-int				ft_tetrivalid(char ***ret, t_flist *begin_list)
-{
-	if (ft_tetri_count(ret) < 0)
-		return (-1);
-	else if (ft_tetri_pos(ret, begin_list) == NULL)
-		return (-1);
-	return (1);
+	return (m);
 }

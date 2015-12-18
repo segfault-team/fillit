@@ -11,8 +11,8 @@ t_flist		*ft_struct_eleven(t_flist *new, int i)
 	new->y1 = 1;
 	new->x2 = 1;
 	new->y2 = 1;
-	new->x3 = 1;
-	new->y3 = 0;
+	new->x3 = 2;
+	new->y3 = 1;
 	new->size = 3;
 	new->letter = (char)i + 'A';
 	new->prev = NULL;

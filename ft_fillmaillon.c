@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_fillmaillon.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vlistrat <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2015/12/18 17:45:35 by vlistrat          #+#    #+#             */
+/*   Updated: 2015/12/18 17:45:53 by vlistrat         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fillit.h"
 
 static t_flist		*ft_fillbis(t_flist *maillon, int n, int i)
@@ -20,8 +32,8 @@ static t_flist		*ft_fillbis(t_flist *maillon, int n, int i)
 		maillon = ft_struct_nineteen(maillon, i);
 	return (maillon);
 }
-	
-t_flist			*ft_fillmaillon(t_flist *maillon, int n, int i)
+
+t_flist				*ft_fillmaillon(t_flist *maillon, int n, int i)
 {
 	if (n == 1)
 		maillon = ft_struct_one(maillon, i);

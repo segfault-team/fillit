@@ -6,17 +6,17 @@
 /*   By: vlistrat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/12 14:19:50 by vlistrat          #+#    #+#             */
-/*   Updated: 2015/12/14 12:34:24 by vlistrat         ###   ########.fr       */
+/*   Updated: 2015/12/18 15:50:47 by vlistrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//TEST
+#include "fillit.h"
 
 int		ft_error(int ft)
 {
-	if (ft < 0)
+	if (ft != 2)
 	{
-		ft_putendl_fd("error", 1);
+		ft_putendl_fd("error", 2);
 		return (-1);
 	}
 	return (1);
