@@ -6,7 +6,7 @@
 /*   By: vlistrat <vlistrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/07 11:36:40 by vlistrat          #+#    #+#             */
-/*   Updated: 2015/12/14 18:13:53 by vlistrat         ###   ########.fr       */
+/*   Updated: 2015/12/17 20:01:26 by vlistrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ typedef struct			s_flist
 	int					y2;
 	int					x3;
 	int					y3;
+	int					pos_x;
+	int					pos_y;
 	int					size;
 	char				letter;
 	struct s_flist		*prev;
@@ -91,7 +93,14 @@ int						ft_lstlen(t_flist *begin_list);
 t_flist					*ft_fillmaillon(t_flist *maillon, int n, int i);
 t_flist					*ft_tetri_pos(char ***ret, t_flist *begin_list);
 int						ft_error(int ft);
-char					**ft_map(char **map, t_flist *list);
+char					**ft_map(char **map, int size);
 char					**ft_clear_map(char **map);
+char					**ft_solve(t_flist *lst, char **map, int j, int k);
+void					ft_putdstr(char **str);
+int						ft_ret_char(int j, int k, t_flist *lst, char **map);
+void					ft_print_tetri(t_flist *lst, char **map, int j, int k);
+t_flist					*ft_list_prev(t_flist *lst);
+char					**ft_clear_last(char **map, t_flist *lst, int j, int k);
+int						*ft_find_pos(t_flist *lst, char **map, int j, int k);
 
 #endif

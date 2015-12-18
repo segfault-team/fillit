@@ -6,7 +6,7 @@
 /*   By: vlistrat <vlistrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/07 11:34:04 by vlistrat          #+#    #+#             */
-/*   Updated: 2015/12/14 18:54:53 by vlistrat         ###   ########.fr       */
+/*   Updated: 2015/12/18 13:25:14 by vlistrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,11 @@ int		main(int ac, char **av)
 	int		len;
 	t_flist	*begin_list;
 	t_flist *list;
-	char	*test;
 	char	**map;
 	int		i;
 
 	i = 0;
-	begin_list = NULL;
+	list = NULL;
 	if (ac != 2)
 	{
 		ft_putendl_fd("error", 1);
@@ -39,30 +38,21 @@ int		main(int ac, char **av)
 		return (0);
 	}
 	aff = ft_convert(buf);
-	list = ft_tetri_pos(aff, begin_list);
-/*	while (list)
-	{
-		ft_putchar(list->letter);
-	//	ft_putchar('\n');
-		ft_putnbr(list->size);
-		list = list->next;
-		ft_putchar('\n');
-	}*/
+	list = ft_tetri_pos(aff, list);
+	begin_list = list;
+	list = ft_list_prev(list);
+	list = begin_list;
 	ft_putchar('\n');
-	/*if (list == NULL)
-	{
-		ft_putendl_fd("error", 1);
-		return (0);
-	}*/
-	map = ft_map(map, list);
-	map = ft_clear_map(map);	
+	ft_putchar(list->letter);
+	ft_putnbr(list->size);
+	map = ft_map(map, list->size);
+	map = ft_solve(list, map, 0, 0);
 	while (map[i])
 	{
 		ft_putendl(map[i]);
 		i++;
 	}
 	ft_putchar('\n');
-	ft_aff(aff, buf);
 	free(buf);
 	free(aff);
 	return (0);

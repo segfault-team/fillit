@@ -6,7 +6,7 @@
 #    By: vlistrat <vlistrat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/05 15:36:08 by vlistrat          #+#    #+#              #
-#    Updated: 2015/12/14 18:09:09 by vlistrat         ###   ########.fr        #
+#    Updated: 2015/12/17 20:03:23 by vlistrat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,9 @@ SRC = main.c \
 	  ft_s_six_ten.c \
 	  ft_s_eleven_fifteen.c \
 	  ft_s_sixteen_nineteen.c \
-	  ft_map.c
+	  ft_map.c \
+	  ft_solve3.c \
+	  ft_list_prev.c
 
 OBJ = $(SRC:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: vlistrat <vlistrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/07 18:40:13 by vlistrat          #+#    #+#             */
-/*   Updated: 2015/12/14 16:18:22 by vlistrat         ###   ########.fr       */
+/*   Updated: 2015/12/16 14:34:16 by vlistrat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ t_flist			*ft_tetri_pos(char ***ret, t_flist *newlist)
 	t_flist		*maillon;
 	t_flist		*maillon2;
 
-//	i = ft_count_ret(ret);
 	i = 0;
 	while (ret[i])
 	{
