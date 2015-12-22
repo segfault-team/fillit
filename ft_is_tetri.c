@@ -6,7 +6,7 @@
 /*   By: vlistrat <vlistrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 12:07:13 by vlistrat          #+#    #+#             */
-/*   Updated: 2015/12/09 12:30:37 by vlistrat         ###   ########.fr       */
+/*   Updated: 2015/12/22 16:21:17 by ddupart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,15 @@ int	ft_part_one(char **ret, int j, int k)
 		return (10);
 	else if (ft_eleven(ret, j, k) == 1)
 		return (11);
-	else if (ft_twelve(ret, j, k) == 1)
-		return (12);
 	else
 		return (-1);
 }
 
 int	ft_part_two(char **ret, int j, int k)
 {
-	if (ft_thirteen(ret, j, k) == 1)
+	if (ft_twelve(ret, j, k) == 1)
+		return (12);
+	else if (ft_thirteen(ret, j, k) == 1)
 		return (13);
 	else if (ft_fourteen(ret, j, k) == 1)
 		return (14);

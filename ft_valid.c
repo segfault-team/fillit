@@ -6,7 +6,7 @@
 /*   By: vlistrat <vlistrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/07 12:07:24 by vlistrat          #+#    #+#             */
-/*   Updated: 2015/12/18 18:02:49 by vlistrat         ###   ########.fr       */
+/*   Updated: 2015/12/22 17:59:00 by ddupart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,18 @@ static int		ft_case(char c)
 	return (-1);
 }
 
+static int		ft_loop(char *buf, int i, int j, int loop)
+{
+	while (j < 4)
+	{
+		if (buf[i] != '.' && buf[i] != '#')
+			return (-1);
+		j++;
+		i++;
+	}
+	return (i);
+}
+
 int				ft_valgrid(char *buf, int ret)
 {
 	int		i;
@@ -26,26 +38,18 @@ int				ft_valgrid(char *buf, int ret)
 	int		loop;
 
 	i = 0;
-	loop = 0;
 	while (i < ret)
 	{
-		loop = 0;
-		while (loop < 4)
+		loop = -1;
+		while (++loop < 4)
 		{
-			j = 0;
-			while (j < 4)
-			{
-				if (buf[i] != '.' && buf[i] != '#')
-					return (-1);
-				j++;
-				i++;
-			}
+			if (!(i = ft_loop(buf, i, 0, loop)))
+				return (-1);
 			if (buf[i] != '\n')
 				return (-1);
 			else if (buf[i] == '\n' && buf[i + 1] == '\n' && loop < 3)
 				return (-1);
 			i++;
-			loop++;
 		}
 		if (buf[i] == '\n' && buf[i + 1] == '\0')
 			return (-1);

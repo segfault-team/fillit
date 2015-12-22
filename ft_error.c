@@ -6,7 +6,7 @@
 /*   By: vlistrat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/12 14:19:50 by vlistrat          #+#    #+#             */
-/*   Updated: 2015/12/18 15:50:47 by vlistrat         ###   ########.fr       */
+/*   Updated: 2015/12/22 16:54:23 by ddupart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,18 @@ int		ft_error(int ft)
 {
 	if (ft != 2)
 	{
-		ft_putendl_fd("error", 2);
-		return (-1);
+		ft_putendl_fd("error", 1);
+		return (0);
+	}
+	return (1);
+}
+
+int		ft_error_bis(char *buf)
+{
+	if (buf == NULL)
+	{
+		ft_putendl_fd("error", 1);
+		return (0);
 	}
 	return (1);
 }

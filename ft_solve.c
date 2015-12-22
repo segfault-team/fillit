@@ -6,7 +6,7 @@
 /*   By: vlistrat <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/18 16:10:35 by vlistrat          #+#    #+#             */
-/*   Updated: 2015/12/18 17:54:00 by vlistrat         ###   ########.fr       */
+/*   Updated: 2015/12/22 18:26:58 by ddupart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,58 +30,45 @@ static int			ft_map_len(char **map)
 	return (i);
 }
 
-static char			**ft_clear(char **map, int size)
+static t_flist		*ft_print_pos(t_flist *lst, char **map, int *tab)
 {
-	char	**cpy;
-	int		i;
-	int		j;
-
-	i = 0;
-	free(map);
-	cpy = ft_map(cpy, size);
-	return (cpy);
+	ft_print_tetri(lst, map, tab[0], tab[1]);
+	lst->pos_y = tab[0];
+	lst->pos_x = tab[1];
+	lst = lst->next;
+	return (lst);
 }
 
-static void			ft_reset_pos(t_flist *lst)
+static t_flist		*ft_come_back(t_flist *lst, char **map, int *tab)
 {
-	while (lst)
-	{
-		lst->pos_x = 0;
-		lst->pos_y = 0;
-		lst = lst->next;
-	}
+	lst = lst->prev;
+	ft_clear_last(map, lst, lst->pos_y, lst->pos_x);
+	lst->pos_x++;
+	return (lst);
 }
 
 char				**ft_solve(t_flist *lst, char **map, int j, int k)
 {
-	int		size;
 	int		*tab;
 	t_flist	*begin_list;
 
 	begin_list = lst;
-	size = lst->size;
 	tab = ft_find_pos(lst, map, 0, 0);
 	while (lst)
 	{
 		while (tab[1] > -1)
 		{
-			ft_print_tetri(lst, map, tab[0], tab[1]);
-			lst->pos_y = tab[0];
-			lst->pos_x = tab[1];
-			lst = lst->next;
+			lst = ft_print_pos(lst, map, tab);
 			tab = ft_find_pos(lst, map, 0, 0);
 		}
 		while (tab[1] == -1)
 		{
-			lst = lst->prev;
-			ft_clear_last(map, lst, lst->pos_y, lst->pos_x);
-			lst->pos_x++;
+			lst = ft_come_back(lst, map, tab);
 			tab = ft_find_pos(lst, map, lst->pos_y, lst->pos_x);
 			if (lst == begin_list && tab[1] == -1)
 			{
-				size++;
-				map = ft_clear(map, size);
-				ft_reset_pos(lst);
+				begin_list->size++;
+				map = ft_clear(map, begin_list->size);
 				tab = ft_find_pos(lst, map, 0, 0);
 			}
 		}

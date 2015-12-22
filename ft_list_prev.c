@@ -6,7 +6,7 @@
 /*   By: ddupart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/17 13:40:35 by ddupart           #+#    #+#             */
-/*   Updated: 2015/12/18 17:48:15 by vlistrat         ###   ########.fr       */
+/*   Updated: 2015/12/22 16:22:11 by ddupart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,17 @@ char			**ft_clear_last(char **map, t_flist *lst, int j, int k)
 	return (map);
 }
 
+static void		ft_fill_tab(int *tab, int j, int k)
+{
+	tab[0] = j;
+	tab[1] = k;
+}
+
 int				*ft_find_pos(t_flist *lst, char **map, int j, int k)
 {
 	int		*tab;
 
-	tab = (int*)malloc(sizeof(*tab) * 2);
-	if (tab == NULL)
+	if (!(tab = (int*)malloc(sizeof(*tab) * 2)))
 		return (NULL);
 	while (lst && ft_ret_char(j, k, lst, map) < 0 && map[j] != NULL)
 	{
@@ -49,17 +54,14 @@ int				*ft_find_pos(t_flist *lst, char **map, int j, int k)
 	}
 	if (!lst)
 	{
-		tab[0] = -2;
-		tab[1] = -2;
+		ft_fill_tab(tab, -2, -2);
 		return (tab);
 	}
 	if (map[j] == NULL)
 	{
-		tab[0] = j;
-		tab[1] = -1;
+		ft_fill_tab(tab, j, -1);
 		return (tab);
 	}
-	tab[0] = j;
-	tab[1] = k;
+	ft_fill_tab(tab, j, k);
 	return (tab);
 }

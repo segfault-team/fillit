@@ -6,7 +6,7 @@
 #    By: vlistrat <vlistrat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/05 15:36:08 by vlistrat          #+#    #+#              #
-#    Updated: 2015/12/18 17:57:00 by vlistrat         ###   ########.fr        #
+#    Updated: 2015/12/22 14:29:08 by vlistrat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,20 +36,31 @@ SRC = main.c \
 
 OBJ = $(SRC:.c=.o)
 
-LIB = lft
+LIB = -lft
+
+LIBDIR = libft
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	gcc -o $(NAME) $(OBJ) -L. -$(LIB)
+	gcc -o $(NAME) $(OBJ) -L. $(LIB)
 
-$(OBJ):
+$(OBJ): $(LIB)
 	gcc -c $(SRC)
 
-clean:
+$(LIB):
+	@(cd $(LIBDIR) && $(MAKE) && cp $(LIBDIR).a $(LIBDIR).h ../)
+
+clean: cleanlib
 	/bin/rm -f $(OBJ)
 
-fclean: clean
-	/bin/rm -f $(NAME)
+cleanlib:
+	@(cd $(LIBDIR) && $(MAKE) clean)
+
+fclean: clean fcleanlib
+	/bin/rm -f $(NAME) $(LIBDIR).a $(LIBDIR).h
+
+fcleanlib:
+	@(cd $(LIBDIR) && $(MAKE) fclean)
 
 re: fclean all

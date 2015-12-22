@@ -6,7 +6,7 @@
 /*   By: vlistrat <vlistrat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/07 15:02:56 by vlistrat          #+#    #+#             */
-/*   Updated: 2015/12/07 16:09:57 by vlistrat         ###   ########.fr       */
+/*   Updated: 2015/12/22 18:29:02 by ddupart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,16 @@ void	ft_aff(char ***ret, char *buf)
 		i++;
 		j = 0;
 	}
+}
+
+char	**ft_clear(char **map, int size)
+{
+	char	**cpy;
+	int		i;
+	int		j;
+
+	i = 0;
+	free(map);
+	cpy = ft_map(cpy, size);
+	return (cpy);
 }
